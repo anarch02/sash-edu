@@ -40,6 +40,3 @@ Route::middleware(['auth', SetLocale::class])->group(function () {
     Route::resource('students', StudentController::class);
     Route::resource('groups', GroupController::class);
 });
-Route::get('/home', function (){
-   return view('dashboard.dashboard');
-})->middleware('auth');
