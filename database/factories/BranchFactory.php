@@ -20,6 +20,7 @@ class BranchFactory extends Factory
             'name' => fake()->unique()->city,
             'address' => fake()->address,
             'city' => fake()->city,
+            'is_active' => fake()->boolean(),
         ];
     }
 }

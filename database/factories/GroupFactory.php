@@ -25,6 +25,7 @@ class GroupFactory extends Factory
             'branch_id' => Branch::query()->inRandomOrder()->value('id'),
             'subject_id' => Subject::query()->inRandomOrder()->value('id'),
             'user_id' => $teacher->id,
+            'is_active' => fake()->boolean,
         ];
     }
 }

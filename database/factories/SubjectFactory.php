@@ -18,6 +18,7 @@ class SubjectFactory extends Factory
     {
         return [
             'name' => fake()->unique()->monthName,
+            'is_active' => fake()->boolean,
         ];
     }
 }

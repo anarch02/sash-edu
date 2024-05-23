@@ -16,7 +16,8 @@ class Group extends Model
         'name',
         'branch_id',
         'subject_id',
-        'user_id'
+        'user_id',
+        'is_active',
     ];
 
     public function branch(): BelongsTo
@@ -29,7 +30,7 @@ class Group extends Model
         return $this->belongsTo(Subject::class);
     }
 
-    public function teacher(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

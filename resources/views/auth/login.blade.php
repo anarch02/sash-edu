@@ -15,7 +15,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/favicon.ico" />
 
     <!-- TITLE -->
-    <title>Sash – Bootstrap 5 Admin & Dashboard Template</title>
+    <title>Sash – Education</title>
 
     <!-- BOOTSTRAP CSS -->
     <link id="style" href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -58,7 +58,8 @@
 
             <div class="container-login100">
                 <div class="wrap-login100 p-6">
-                    <form class="login100-form validate-form">
+                    <form action="{{ route('login_proccess') }}" method="POST" class="login100-form validate-form">
+                        @csrf
                             <span class="login100-form-title pb-5">
                                 Login
                             </span>
@@ -79,43 +80,34 @@
                                             <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                                 <i class="zmdi zmdi-email text-muted" aria-hidden="true"></i>
                                             </a>
-                                            <input class="input100 border-start-0 form-control ms-0" type="email" placeholder="Email">
+                                            <input name="email" class="input10  @error('email') is-invalid @enderror border-start-0 form-control ms-0" type="email" placeholder="Email">
+
                                         </div>
+                                        @error('email')
+                                            <p> {{ $message }} </p>
+                                        @enderror
                                         <div class="wrap-input100 validate-input input-group" id="Password-toggle">
                                             <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                                 <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
                                             </a>
-                                            <input class="input100 border-start-0 form-control ms-0" type="password" placeholder="Password">
+                                            <input name="password" class="input100 border-start-0  @error('email') is-invalid @enderror form-control ms-0" type="password" placeholder="Password">
+                                            @error('password')
+                                                <p> {{ $message }} </p>
+                                            @enderror
                                         </div>
                                         <div class="text-end pt-4">
                                             <p class="mb-0"><a href="forgot-password.html" class="text-primary ms-1">Forgot Password?</a></p>
                                         </div>
                                         <div class="container-login100-form-btn">
-                                            <a href="index.html" class="login100-form-btn btn-primary">
+                                            <button type="submit" class="login100-form-btn btn-primary">
                                                 Login
-                                            </a>
+                                            </button>
                                         </div>
-                                        <div class="text-center pt-3">
-                                            <p class="text-dark mb-0">Not a member?<a href="register.html" class="text-primary ms-1">Sign UP</a></p>
+                                        @isset($error)
+                                        <div class="text-center">
+                                            <p> {{ $error }} </p>
                                         </div>
-                                        <label class="login-social-icon"><span>Login with Social</span></label>
-                                        <div class="d-flex justify-content-center">
-                                            <a href="javascript:void(0)">
-                                                <div class="social-login me-4 text-center">
-                                                    <i class="fa fa-google"></i>
-                                                </div>
-                                            </a>
-                                            <a href="javascript:void(0)">
-                                                <div class="social-login me-4 text-center">
-                                                    <i class="fa fa-facebook"></i>
-                                                </div>
-                                            </a>
-                                            <a href="javascript:void(0)">
-                                                <div class="social-login text-center">
-                                                    <i class="fa fa-twitter"></i>
-                                                </div>
-                                            </a>
-                                        </div>
+                                        @endisset
                                     </div>
                                     <div class="tab-pane" id="tab6">
                                         <div id="mobile-num" class="wrap-input100 validate-input input-group mb-4">

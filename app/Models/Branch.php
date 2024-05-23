@@ -10,7 +10,7 @@ class Branch extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'address', 'city'];
+    protected $fillable = ['name', 'address', 'city', 'is_active'];
 
     public function groups(): HasMany
     {

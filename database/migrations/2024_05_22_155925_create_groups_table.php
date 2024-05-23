@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\Branch::class)->constrained();
             $table->foreignIdFor(\App\Models\Subject::class)->constrained();
             $table->foreignIdFor(\App\Models\User::class)->constrained();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
