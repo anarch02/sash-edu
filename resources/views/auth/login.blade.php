@@ -80,7 +80,7 @@
                                             <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                                 <i class="zmdi zmdi-email text-muted" aria-hidden="true"></i>
                                             </a>
-                                            <input class="input100 border-start-0 form-control ms-0" type="email" placeholder="Email">
+                                            <input class="input100 border-start-0 form-control ms-0" name="email" type="email" placeholder="Email">
                                         </div>
                                         @error('email')
                                             <p> {{ $message }} </p>

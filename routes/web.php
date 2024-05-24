@@ -7,6 +7,7 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -39,6 +40,8 @@ Route::middleware(['auth', SetLocale::class])->group(function () {
     Route::resource('subjects', SubjectController::class);
     Route::resource('students', StudentController::class);
     Route::resource('groups', GroupController::class);
+    Route::resource('users', UserController::class);
 });
 
 // test git
+

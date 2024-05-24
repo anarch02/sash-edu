@@ -40,6 +40,12 @@ class DashboardController extends Controller
             'route' => 'students.index',
             'role' => 'admin'
         ],
+        [
+            'title' => 'users',
+            'icon' => 'fe fe-users',
+            'route' => 'users.index',
+            'role' => 'admin'
+        ],
     ];
 
     public function get_sidebar()
