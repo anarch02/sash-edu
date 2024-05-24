@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\Subject::class)->constrained();
             $table->foreignIdFor(\App\Models\User::class)->constrained();
             $table->boolean('is_active')->default(true);
+            $table->float('cost', 11)->default(0);
             $table->timestamps();
         });
     }

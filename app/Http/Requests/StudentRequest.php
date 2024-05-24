@@ -25,7 +25,9 @@ class StudentRequest extends FormRequest
             'name' => ['required', 'string'],
             'phone' => ['required', 'string', 'unique:students,phone'],
             'password' => ['required'],
-            'is_active' => ['required', 'boolean']
+            'is_active' => ['required', 'boolean'],
+            'branch_id' => ['required', 'exists:branches,id'],
+            'image' => ['nullable', 'file:png,jpg,jpeg']
         ];
     }
 }

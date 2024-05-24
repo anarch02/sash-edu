@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Branch;
+use App\Models\Chat;
 use App\Models\Group;
+use App\Models\Message;
+use App\Models\Payment;
 use App\Models\Student;
 use App\Models\Subject;
 use App\Models\User;
@@ -22,14 +25,12 @@ class DatabaseSeeder extends Seeder
         Subject::factory(2)->create();
         Group::factory(15)->create();
         Student::factory(50)->create();
+        Payment::factory(50)->create();
+        Message::factory(200)->create();
 
         $students = Student::all();
 
         $groups = Group::all();
-
-        //         $students->each(function ($student) use ($groups){
-        //            $student->groups()->attach(rand(1, 5));
-        //        });
 
         $groups->each(function ($group) use ($students) {
             $group->students()->attach($students->random(3));

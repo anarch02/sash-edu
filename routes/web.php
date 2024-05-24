@@ -43,5 +43,6 @@ Route::middleware(['auth', SetLocale::class])->group(function () {
     Route::resource('users', UserController::class);
 });
 
-// test git
-
+Route::get('/chat', function (){
+   return view('chat.index');
+});

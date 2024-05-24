@@ -18,7 +18,7 @@
                         @foreach ($sidebar as $item)
 
                         <li class="slide">
-                            <a class="side-menu__item has-link" data-bs-toggle="slide" href="{{ route($item['route']) }}"><i
+                            <a class="side-menu__item has-link @if(request()->url() == route($item['route'])) active @endif " data-bs-toggle="slide" href="{{ route($item['route']) }}"><i
                                     class="side-menu__icon {{ $item['icon'] }}"></i><span
                                     class="side-menu__label">{{ __('app.'.$item['title']) }}</span></a>
                         </li>

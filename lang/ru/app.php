@@ -55,4 +55,11 @@ return [
     'manager' => 'Менеджер',
     'managers' => 'Менеджеры',
     'role' => 'Роль',
+    'notifications' => 'Уведомления',
+    'per_info' => 'Персональные данные',
+    'fio' => "ФИО",
+    'image' => 'Фото',
+    'not_required' => 'Не обязательно',
+    'choose_group' => 'Выбор группы',
+    'creating' => 'Создание',
 ];

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Branch;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -23,6 +24,7 @@ class StudentFactory extends Factory
             'phone' => fake()->phoneNumber(),
             'password' => Hash::make('password'),
             'is_active' => fake()->boolean(),
+            'branch_id' => Branch::query()->inRandomOrder()->value('id'),
         ];
     }
 }

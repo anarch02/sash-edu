@@ -53,5 +53,11 @@ return [
     'manager' => 'Manager',
     'managers' => 'Managers',
     'role' => 'Role',
+    'notifications' => 'Notifications',
+    'per_info' => 'Personal Information',
+    'image' => 'Image',
+    'not_required' => 'Not required',
+    'choose_group' => 'Choosing group',
+    'creating' => 'Creating',
 
 ];

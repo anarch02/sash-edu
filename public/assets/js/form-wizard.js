@@ -1,6 +1,6 @@
 (function($) {
     "use strict";
-    
+
     // WIZARD 1
     $('#wizard1').steps({
         headerTag: 'h3',
@@ -50,7 +50,10 @@
         bodyTag: 'section',
         autoFocus: true,
         titleTemplate: '<span class="number">#index#<\/span> <span class="title">#title#<\/span>',
-        stepsOrientation: 1
+        stepsOrientation: 1,
+        onFinished: function (event, currentIndex) {
+            $("#form").submit();
+        }
     });
 
     // DROPIFY
@@ -79,7 +82,7 @@
 
 function readURL(input) {
     'use strict'
-    
+
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function(e) {

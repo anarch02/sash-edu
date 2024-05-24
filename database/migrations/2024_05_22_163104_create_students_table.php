@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Branch;
 use App\Models\Group;
 use App\Models\Student;
 use Illuminate\Database\Migrations\Migration;
@@ -15,10 +16,12 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Branch::class)->constrained();
             $table->string('name');
             $table->string('phone')->unique();
             $table->string('password');
             $table->boolean('is_active');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
 

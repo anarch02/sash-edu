@@ -50,10 +50,9 @@
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tab5">
                                                 <div class="table-responsive">
-                                                    <table id="data-table"
-                                                           class="table table-bordered text-nowrap mb-0">
-                                                        <thead class="border-top">
-                                                        <tr>
+                                                    <x-table>
+                                                        <x-thead>
+                                                        <x-tr>
                                                             <th class="bg-transparent border-bottom-0"
                                                                 style="width: 5%;">Id</th>
                                                             <th
@@ -68,11 +67,11 @@
                                                                 {{ __('app.created_at') }}</th>
                                                             <th class="bg-transparent border-bottom-0"
                                                                 style="width: 5%;">{{ __('app.actions') }}</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
+                                                        </x-tr>
+                                                        </x-thead>
+                                                        <x-tbody>
                                                             @foreach ($students as $student)
-                                                            <tr class="border-bottom">
+                                                            <x-tr class="border-bottom">
                                                                 <td class="text-center">
                                                                     <div class="mt-0 mt-sm-2 d-block">
                                                                         <h6
@@ -112,51 +111,39 @@
                                                                            data-bs-toggle="tooltip"
                                                                            data-bs-original-title="{{ __('app.delete') }}"><span
                                                                                 class="fe fe-trash-2 fs-14"></span></a>
-                                                                                <form action="{{ route('students.destroy', $student->id) }}" id="delete-student-{{ $student->id }}" method="post">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                </form>
+                                                                        <form action="{{ route('students.destroy', $student->id) }}" id="delete-student-{{ $student->id }}" method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                        </form>
                                                                     </div>
                                                                 </td>
-                                                            </tr>
-                                                            @endforeach
+                                                            </x-tr>
+                                                        @endforeach
 
-                                                        </tbody>
-                                                    </table>
+                                                        </x-tbody>
+                                                    </x-table>
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="tab__1">
                                                 <div class="table-responsive">
-                                                    <table id="data-table"
-                                                           class="table table-bordered text-nowrap mb-0">
-                                                        <thead class="border-top">
-                                                        <tr>
-                                                            <th class="bg-transparent border-bottom-0"
-                                                                style="width: 5%;">Id</th>
-                                                            <th
-                                                                class="bg-transparent border-bottom-0">
-                                                                {{ __('app.name') }}</th>
+                                                    <x-table>
+                                                        <x-thead>
+                                                        <x-tr>
+                                                            <x-th style="width: 5%;">Id</x-th>
+                                                            <x-th>
+                                                                {{ __('app.name') }}</x-th>
 
-                                                            <th
-                                                                class="bg-transparent border-bottom-0">
-                                                                {{ __('app.phone') }} </th>
-                                                            <th
-                                                                class="bg-transparent border-bottom-0">
-                                                                {{ __('app.teacher') }}</th>
-                                                            <th
-                                                                class="bg-transparent border-bottom-0">
-                                                                {{ __('app.branch') }}</th>
-                                                            <th
-                                                                class="bg-transparent border-bottom-0">
-                                                                {{ __('app.created_at') }}</th>
-                                                            <th class="bg-transparent border-bottom-0"
-                                                                style="width: 5%;">{{ __('app.actions') }}</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
+                                                            <x-th>
+                                                                {{ __('app.phone') }} </x-th>
+                                                            <x-th>
+                                                                {{ __('app.created_at') }}</x-th>
+                                                            <x-th style="width: 5%;">{{ __('app.actions') }}</x-th>
+                                                        </x-tr>
+                                                        </x-thead>
+                                                        <x-tbody>
                                                             @foreach ($students as $student)
                                                             @if ($student->is_active)
-                                                            <tr class="border-bottom">
+                                                            <x-tr class="border-bottom">
                                                                 <td class="text-center">
                                                                     <div class="mt-0 mt-sm-2 d-block">
                                                                         <h6
@@ -197,18 +184,17 @@
                                                                                 class="fe fe-trash-2 fs-14"></span></a>
                                                                     </div>
                                                                 </td>
-                                                            </tr>
+                                                            </x-tr>
                                                             @endif
                                                             @endforeach
 
-                                                        </tbody>
-                                                    </table>
+                                                        </x-tbody>
+                                                    </x-table>
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="tab__0">
                                                 <div class="table-responsive">
-                                                    <table id="data-table"
-                                                           class="table table-bordered text-nowrap mb-0">
+                                                    <table class="table table-bordered text-nowrap border-bottom" id="basic-datatable">
                                                         <thead class="border-top">
                                                         <tr>
                                                             <th class="bg-transparent border-bottom-0"
@@ -290,4 +276,59 @@
         </div>
     </div>
     <!-- CONTAINER END -->
+
+@endsection
+
+@section('js')
+    <!-- SPARKLINE JS-->
+    <script src="{{ asset('assets/js/jquery.sparkline.min.js') }}"></script>
+
+    <!-- CHART-CIRCLE JS-->
+    <script src="{{ asset('assets/js/circle-progress.min.js') }}"></script>
+
+    <!-- C3 CHART JS -->
+    <script src="{{ asset('assets/plugins/charts-c3/d3.v5.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/charts-c3/c3-chart.js') }}"></script>
+
+    <!-- INPUT MASK JS-->
+    <script src="{{ asset('assets/plugins/input-mask/jquery.mask.min.js') }}"></script>
+
+    <!-- SIDE-MENU JS -->
+    <script src="{{ asset('assets/plugins/sidemenu/sidemenu.js') }}"></script>
+
+    <!-- TypeHead js -->
+    <script src="{{ asset('assets/plugins/bootstrap5-typehead/autocomplete.js') }}"></script>
+    <script src="{{ asset('assets/js/typehead.js') }}"></script>
+
+    <!-- INTERNAL SELECT2 JS -->
+    <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
+
+    <!-- DATA TABLE JS-->
+    <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/buttons.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/jszip.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/buttons.colVis.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/responsive.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('assets/js/table-data.js') }}"></script>
+
+    <!-- SIDEBAR JS -->
+    <script src="{{ asset('assets/plugins/sidebar/sidebar.js') }}"></script>
+
+    <!-- Perfect SCROLLBAR JS-->
+    <script src="{{ asset('assets/plugins/p-scroll/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('assets/plugins/p-scroll/pscroll.js') }}"></script>
+    <script src="{{ asset('assets/plugins/p-scroll/pscroll-1.js') }}"></script>
+
+    <!-- Color Theme js -->
+    <script src="{{ asset('assets/js/themeColors.js') }}"></script>
+
+    <!-- Sticky js -->
+    <script src="{{ asset('assets/js/sticky.js') }}"></script>
 @endsection
